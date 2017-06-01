@@ -9,7 +9,12 @@ public class Engine
 	public Engine(String name, int power)
 	{
 		this.name = name;
-		this.power = power;
+		if(power<0){
+			throw new IllegalArgumentException("The Power must be greater than 0");
+		}else
+		{
+			this.power = power;
+		}
 	}
 
 	public int getPower()
