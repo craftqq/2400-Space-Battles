@@ -1,7 +1,7 @@
 package equipment;
 
 public class Weapon
-{   
+{
     public static final int TYPE_LASER = 0;
     public static final int TYPE_PARTICLE = 1;
     public static final int TYPE_CONVENTIONAL = 2;
@@ -15,7 +15,7 @@ public class Weapon
     public Weapon(int damage_, int type_, String name_)
     {
         damage = damage_;
-        if(type<0||type>4)
+        if(type < 0 || type > 4)
         {
             throw new IllegalArgumentException("the Type has to be set to one of the avaible weapon types");
         }
