@@ -16,17 +16,20 @@ public class Weapon
     private String name;
     private int damage;
     private WEAPON_TYPE type;
+    private int weight;
     
-    public Weapon(String name_, int damage_, WEAPON_TYPE type_)
+    public Weapon(String name_, int damage_, WEAPON_TYPE type_, int weight_)
     {
-        if(name_ == null) throw new IllegalArgumentException("Name cannot be null");
-        if(name_.trim().isEmpty()) throw new IllegalArgumentException("Name cannot be whitespace or empty");
-        if(damage_ < 0) throw new IllegalArgumentException("Damage cannot be negative");
-        if(type_ == null) throw new IllegalArgumentException("Weapon Type cannot be null");
+        if(name_ == null) throw new IllegalArgumentException("Name cannot be null!");
+        if(name_.trim().isEmpty()) throw new IllegalArgumentException("Name cannot be whitespace or empty!");
+        if(damage_ < 0) throw new IllegalArgumentException("Damage cannot be negative!");
+        if(type_ == null) throw new IllegalArgumentException("Weapon Type cannot be null!");
+        if(weight_ < 0) throw new IllegalArgumentException("Weight cannot be negative!");
         
         name = name_;
         damage = damage_;
         type = type_;
+        weight = weight_;
     }
 
     public String getName() 
