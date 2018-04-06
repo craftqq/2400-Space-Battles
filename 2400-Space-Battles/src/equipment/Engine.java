@@ -1,24 +1,26 @@
 package equipment;
 
-/**
- * Created by Michael on 01.06.2017.
- */
 public class Engine
 {
-    private int power;
     private String name;
+    private int power;
+    private int weight;
     
-    public Engine(String name, int power)
+    public Engine(String name_, int power_, int weight_)
     {
-        this.name = name;
-        if(power < 0)
-        {
-            throw new IllegalArgumentException("The Power must be greater than 0");
-        }
-        else
-        {
-            this.power = power;
-        }
+        if(name_ == null) throw new IllegalArgumentException("Name cannot be null");
+        if(name_.trim().isEmpty()) throw new IllegalArgumentException("Name cannot be whitespace or empty");
+        if(power_ < 0) throw new IllegalArgumentException("Power cannot be negative");
+        if(weight_ < 0) throw new IllegalArgumentException("Weight cannot be negative");
+        
+        name = name_;
+        power = power_;
+        weight = weight_;
+    }
+
+    public String getName()
+    {
+        return name;
     }
     
     public int getPower()
@@ -26,8 +28,8 @@ public class Engine
         return power;
     }
     
-    public String getName()
+    public int getWeight()
     {
-        return name;
+        return weight;
     }
 }
