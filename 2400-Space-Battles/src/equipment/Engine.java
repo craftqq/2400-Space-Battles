@@ -1,6 +1,6 @@
 package equipment;
 
-import static util.Preconditions.*;
+import static util.Precondition.*;
 
 public class Engine
 {
@@ -11,11 +11,11 @@ public class Engine
     
     public Engine(String name_, int power_, int warpPower_, int weight_)
     {
-        guardNonNull(name_,"Engine Name");
-        if(name_.trim().isEmpty()) throw new IllegalArgumentException("Name cannot be whitespace or empty!");
-        guardNonNegative(power_, "Engine Power");
-        guardNonNegative(warpPower_, "Engine Warp Power");
-        guardNonNegative(weight_, "Engine Weight");
+        guardNotNull(name_,"Engine Name");
+        guardNotWhitespaceOrEmpty(name_, "Engine Name");
+        guardNotNegative(power_, "Engine Power");
+        guardNotNegative(warpPower_, "Engine Warp Power");
+        guardNotNegative(weight_, "Engine Weight");
         
         name = name_;
         power = power_;

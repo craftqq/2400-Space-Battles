@@ -1,6 +1,6 @@
 package equipment;
 
-import static util.Preconditions.*;
+import static util.Precondition.*;
 
 public class Weapon
 {
@@ -22,11 +22,11 @@ public class Weapon
     
     public Weapon(String name_, int damage_, WEAPON_TYPE type_, int weight_)
     {
-        guardNonNull(name_,"Weapon Name");
-        if(name_.trim().isEmpty()) throw new IllegalArgumentException("Weapon Name cannot be whitespace or empty!");
-        guardNonNegative(damage_, "Weapon Damage");
-        guardNonNull(type,"Weapon Type");
-        guardNonNegative(weight_, "Weapon Weight");
+        guardNotNull(name_,"Weapon Name");
+        guardNotWhitespaceOrEmpty(name_, "Weapon Name");
+        guardNotNegative(damage_, "Weapon Damage");
+        guardNotNull(type,"Weapon Type");
+        guardNotNegative(weight_, "Weapon Weight");
         
         name = name_;
         damage = damage_;
