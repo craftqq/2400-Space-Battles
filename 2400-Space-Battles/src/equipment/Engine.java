@@ -1,5 +1,7 @@
 package equipment;
 
+import static util.Preconditions.*;
+
 public class Engine
 {
     private String name;
@@ -9,11 +11,11 @@ public class Engine
     
     public Engine(String name_, int power_, int warpPower_, int weight_)
     {
-        if(name_ == null) throw new IllegalArgumentException("Name cannot be null!");
+        guardNonNull(name_,"Engine Name");
         if(name_.trim().isEmpty()) throw new IllegalArgumentException("Name cannot be whitespace or empty!");
-        if(power_ < 0) throw new IllegalArgumentException("Power cannot be negativ!");
-        if(warpPower_ < 0) throw new IllegalArgumentException("Warp Power cannot be negative!");
-        if(weight_ < 0) throw new IllegalArgumentException("Weight cannot be negative!");
+        guardNonNegative(power_, "Engine Power");
+        guardNonNegative(warpPower_, "Engine Warp Power");
+        guardNonNegative(weight_, "Engine Weight");
         
         name = name_;
         power = power_;
@@ -29,6 +31,11 @@ public class Engine
     public int getPower()
     {
         return power;
+    }
+    
+    public int getWarpPower()
+    {
+        return warpPower;
     }
     
     public int getWeight()

@@ -1,5 +1,7 @@
 package equipment;
 
+import static util.Preconditions.*;
+
 public class Weapon
 {
     public static final int TYPE_LASER = 0;
@@ -20,11 +22,11 @@ public class Weapon
     
     public Weapon(String name_, int damage_, WEAPON_TYPE type_, int weight_)
     {
-        if(name_ == null) throw new IllegalArgumentException("Name cannot be null!");
-        if(name_.trim().isEmpty()) throw new IllegalArgumentException("Name cannot be whitespace or empty!");
-        if(damage_ < 0) throw new IllegalArgumentException("Damage cannot be negative!");
-        if(type_ == null) throw new IllegalArgumentException("Weapon Type cannot be null!");
-        if(weight_ < 0) throw new IllegalArgumentException("Weight cannot be negative!");
+        guardNonNull(name_,"Weapon Name");
+        if(name_.trim().isEmpty()) throw new IllegalArgumentException("Weapon Name cannot be whitespace or empty!");
+        guardNonNegative(damage_, "Weapon Damage");
+        guardNonNull(type,"Weapon Type");
+        guardNonNegative(weight_, "Weapon Weight");
         
         name = name_;
         damage = damage_;
@@ -46,5 +48,8 @@ public class Weapon
         return type;
     }
     
-    
+    public int getWeight()
+    {
+        return weight;
+    }
 }
